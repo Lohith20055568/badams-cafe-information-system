@@ -5,6 +5,7 @@
       "id": 1,
       "item": "regular",
       "quantity": "6",
+      "Type": "Venti",
       "total": 30,
       "status": "completed"
 
@@ -13,7 +14,7 @@
   ],
   "nextIds": {
     "menu": 7,
-    "orders": 2
+    "orders": 6
 
   }
 
