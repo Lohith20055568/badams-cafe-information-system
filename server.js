@@ -14,4 +14,7 @@ const raw = await fs.readFile(DATA_FILE,"utf8");
 return JSON.parse(raw);
 }
 
+async function writeData(data){
+await fs.writeFile(DATA_FILE,JSON.stringify(data,null,2)
+}
 
