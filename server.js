@@ -18,3 +18,10 @@ async function writeData(data){
 await fs.writeFile(DATA_FILE,JSON.stringify(data,null,2)
 }
 
+app.get("/api/menu",async(req,res)=>{
+const data = await readData();
+res.json(data.menu);
+});
+
+  
+
