@@ -96,5 +96,17 @@ input, select {
 let menu = [];
 let orders = [];
 
+// Add menu item + clear inputs
+function addItem() {
+  const nameInput = document.getElementById("name");
+  const priceInput = document.getElementById("price");
+  const categoryInput = document.getElementById("category");
+
+  const name = nameInput.value;
+  const price = priceInput.value;
+  const category = categoryInput.value;
+
+  if (!name || !price || !category) return;
+
 
 
