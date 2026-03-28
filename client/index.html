@@ -108,5 +108,13 @@ function addItem() {
 
   if (!name || !price || !category) return;
 
+  menu.push({
+    id: Date.now(),
+    name,
+    price: Number(price),
+    category
+  });
+
+
 
 
