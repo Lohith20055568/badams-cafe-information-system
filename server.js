@@ -27,6 +27,7 @@ app.post("/api/menu",async(req,res)=>{
 const {name,price,category}=req.body;
 const data = await readData();
 
+const id = data.nextIds.menu++;
 
   
 
