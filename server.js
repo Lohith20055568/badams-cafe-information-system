@@ -29,5 +29,12 @@ const data = await readData();
 
 const id = data.nextIds.menu++;
 
+const item={
+id,
+name,
+price:Number(price),
+category
+};
+
   
 
