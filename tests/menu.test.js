@@ -9,3 +9,9 @@ function addItem(name) {
 function editItem(name) {
   menu[0].name = name;
 }
+
+// Delete
+
+function deleteItem() {
+  menu = [];
+}
