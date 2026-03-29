@@ -117,13 +117,28 @@ function addItem() {
 
 renderMenu();
 
-
-  //  clear inputs
+//  clear inputs
   nameInput.value = "";
   priceInput.value = "";
   categoryInput.value = "";
   nameInput.focus();
 }
 
+// Edit menu item
+function editItem(id) {
+  const item = menu.find(m => m.id == id);
+
+  const newName = prompt("Edit name:", item.name);
+  const newPrice = prompt("Edit price:", item.price);
+  const newCategory = prompt("Edit category:", item.category);
+
+  if (!newName || !newPrice || !newCategory) return;
+
+  item.name = newName;
+  item.price = Number(newPrice);
+  item.category = newCategory;
+
+  renderMenu();
+}
 
 
