@@ -140,4 +140,13 @@ function editItem(id) {
   renderMenu();
 }
 
+// Delete menu item + remove related orders
+function deleteItem(id) {
+  menu = menu.filter(m => m.id != id);
+  orders = orders.filter(o => o.itemId != id);
+
+  renderMenu();
+  renderOrders();
+}
+
 
