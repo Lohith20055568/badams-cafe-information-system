@@ -36,5 +36,11 @@ price:Number(price),
 category
 };
 
+data.menu.push(item);
+await writeData(data);
+
+res.status(201).json(item);
+});
+
   
 
