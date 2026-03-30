@@ -15,3 +15,8 @@ function editItem(name) {
 function deleteItem() {
   menu = [];
 }
+
+//Tests
+addItem("Mocha");
+console.log(menu.length == 1 ? "Add PASS" : "Add FAIL").
+  
