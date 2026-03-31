@@ -42,5 +42,12 @@ await writeData(data);
 res.status(201).json(item);
 });
 
+app.delete("/api/menu/:id",async(req,res)=>{
+const data=await readData();
+
+data.menu=data.menu.filter(m=>m.id!=req.params.id);
+
+await writeData(data);  
+
   
 
