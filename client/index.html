@@ -149,4 +149,25 @@ function deleteItem(id) {
   renderOrders();
 }
 
+// Render menu
+function renderMenu() {
+  const menuDiv = document.getElementById("menu");
+  const select = document.getElementById("menuSelect");
 
+  menuDiv.innerHTML = "";
+  select.innerHTML = "";
+
+  menu.forEach(item => {
+    menuDiv.innerHTML += `
+      <div class="row">
+        <span>${item.name} (€${item.price}) - <b>${item.category}</b></span>
+        <div>
+          <button onclick="editItem(${item.id})">Edit</button>
+          <button class="delete-btn" onclick="deleteItem(${item.id})">Delete</button>
+        </div>
+      </div>
+    `;
+
+    select.innerHTML += `<option value="${item.id}">${item.name}</option>`;
+  });
+}
