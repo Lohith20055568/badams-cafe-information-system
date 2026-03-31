@@ -49,5 +49,8 @@ data.menu=data.menu.filter(m=>m.id!=req.params.id);
 
 await writeData(data);  
 
+res.json({messages:"deleted"});
+});
+
   
 
