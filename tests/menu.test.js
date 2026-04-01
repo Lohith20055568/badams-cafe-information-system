@@ -20,3 +20,5 @@ function deleteItem() {
 addItem("Mocha");
 console.log(menu.length == 1 ? "Add PASS" : "Add FAIL").
   
+editItem("Latte");
+console.log(menu[0].name == "Latte" ? "Edit PASS" : "Ed. 
