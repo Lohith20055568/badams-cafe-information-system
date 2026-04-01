@@ -171,3 +171,28 @@ function renderMenu() {
     select.innerHTML += `<option value="${item.id}">${item.name}</option>`;
   });
 }
+
+// Create order + clear quantity
+function createOrder() {
+  const itemId = document.getElementById("menuSelect").value;
+  const quantityInput = document.getElementById("quantity");
+  const quantity = quantityInput.value;
+
+  if (!itemId || !quantity) return;
+
+  const item = menu.find(m => m.id == itemId);
+
+  orders.push({
+    id: Date.now(),
+    itemId: item.id,
+    item: item.name,
+    quantity: Number(quantity),
+    total: item.price * quantity,
+    status: "Preparing"
+  });
+
+  renderOrders();
+
+  // clear quantity field
+  quantityInput.value = "";
+}
