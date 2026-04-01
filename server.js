@@ -52,5 +52,9 @@ await writeData(data);
 res.json({messages:"deleted"});
 });
 
+app.get("api/order",async(req,res)=>{
+const data=await readData();
+res.json(data.orders);
+});
   
 
