@@ -22,3 +22,6 @@ console.log(menu.length == 1 ? "Add PASS" : "Add FAIL").
   
 editItem("Latte");
 console.log(menu[0].name == "Latte" ? "Edit PASS" : "Ed. 
+
+deleteItem();
+console.log(menu.length == 0 ? "Delete PASS" : "Delete FAIL");
