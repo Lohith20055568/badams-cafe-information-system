@@ -196,3 +196,11 @@ function createOrder() {
   // clear quantity field
   quantityInput.value = "";
 }
+
+// Update order status
+function updateStatus(id, status) {
+  const order = orders.find(o => o.id == id);
+  order.status = status;
+  renderOrders();
+}
+
