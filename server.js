@@ -56,5 +56,8 @@ app.get("api/order",async(req,res)=>{
 const data=await readData();
 res.json(data.orders);
 });
+
+app.post("/api/orders",async(req,res)=>{
+const {menuId,quantity}=req.body;
   
 
