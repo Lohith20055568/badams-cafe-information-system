@@ -209,3 +209,31 @@ function renderOrders() {
   const div = document.getElementById("orders");
   div.innerHTML = "";
 
+  
+  orders.forEach(o => {
+    const color = o.status === "Completed" ? "green" : "orange";
+
+    div.innerHTML += `
+      <div class="row">
+        <span>
+          Order #${o.id} - ${o.item} x${o.quantity} (€${o.total})
+        </span>
+
+        <div>
+          <select onchange="updateStatus(${o.id}, this.value)">
+            <option ${o.status==="Preparing"?"selected":""}>Preparing</option>
+            <option ${o.status==="Completed"?"selected":""}>Completed</option>
+          </select>
+
+          <span style="margin-left:10px; color:${color}; font-weight:bold;">
+            ${o.status}
+          </span>
+        </div>
+      </div>
+    `;
+  });
+}
+</script>
+
+</body>
+</html>
