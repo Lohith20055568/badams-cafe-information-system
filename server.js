@@ -61,5 +61,19 @@ app.post("/api/orders",async(req,res)=>{
 const {menuId,quantity}=req.body;
 
 const data=await readData();
+
+const item=data.menu.find(m=>m.id==menuId);
+
+const total=item.price*quantity;
+
+const id=data.nextIds.orders++;
+
+const order={
+id,
+item:item.name,
+quantity,
+total,
+status:"pending"
+};
   
 
