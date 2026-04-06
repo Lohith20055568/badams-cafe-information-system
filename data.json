@@ -1,1 +1,48 @@
-
+{
+  "menu": [
+    {
+      "id": 8,
+      "name": "venti",
+      "price": 4.95,
+      "category": "Coffee"
+    },
+    {
+      "id": 9,
+      "name": "Iced Latte",
+      "price": 4.5,
+      "category": "Coffee"
+    },
+    {
+      "id": 10,
+      "name": "Mocha",
+      "price": 5.5,
+      "category": "Coffee"
+    },
+    {
+      "id": 11,
+      "name": "Iced Tea",
+      "price": 5,
+      "category": "Tea"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "item": "regular ",
+      "quantity": "6",
+      "total": 30,
+      "status": "completed"
+    },
+    {
+      "id": 2,
+      "item": "Iced Tea",
+      "quantity": "2",
+      "total": 10,
+      "status": "completed"
+    }
+  ],
+  "nextIds": {
+    "menu": 12,
+    "orders": 3
+  }
+}
