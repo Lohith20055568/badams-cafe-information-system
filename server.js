@@ -3,7 +3,7 @@ const fs = require("fs").promises;
 const path = require("path");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const DATA_FILE = path.join(__dirname, "data.json");
 
 app.use(express.json());
@@ -86,5 +86,17 @@ res.status(201).json(order);
 app.put("/api/orders/:id/complete",async(req,res)=>{
 const data=await readData();
 
+const order=data.orders.find(o=>o.id==req.params.id);
+
+order.status="completed";
+
+await writeData(data);
+
+res.json(order);
+});
+
+app.listen(PORT, () => {
+  console.log(`Badam's Cafe running on port ${PORT}`);
+});
 
 
