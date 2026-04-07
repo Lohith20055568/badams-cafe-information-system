@@ -75,5 +75,16 @@ quantity,
 total,
 status:"pending"
 };
-  
+
+data.orders.push(order);
+
+await writeData(data);
+
+res.status(201).json(order);
+});
+
+app.put("/api/orders/:id/complete",async(req,res)=>{
+const data=await readData();
+
+
 
