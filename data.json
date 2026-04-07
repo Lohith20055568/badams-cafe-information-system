@@ -28,15 +28,15 @@
   "orders": [
     {
       "id": 1,
-      "item": "regular ",
-      "quantity": "6",
+      "item": "regular",
+      "quantity": 6,
       "total": 30,
       "status": "completed"
     },
     {
       "id": 2,
       "item": "Iced Tea",
-      "quantity": "2",
+      "quantity": 2,
       "total": 10,
       "status": "completed"
     }
