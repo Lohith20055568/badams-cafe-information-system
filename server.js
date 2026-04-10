@@ -9,9 +9,21 @@ const DATA_FILE = path.join(__dirname, "data.json");
 app.use(express.json());
 app.use(express.static("client"));
 
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "index.html"));
+});
+
 async function readData(){
-const raw = await fs.readFile(DATA_FILE,"utf8");
-return JSON.parse(raw);
+  try {
+    const raw = await fs.readFile(DATA_FILE,"utf8");
+    return JSON.parse(raw);
+  } catch (err) {
+    return {
+      menu: [],
+      orders: [],
+      nextIds: { menu: 1, orders: 1 }
+    };
+  }
 }
 
 async function writeData(data){
@@ -63,6 +75,7 @@ const {menuId,quantity}=req.body;
 const data=await readData();
 
 const item=data.menu.find(m=>m.id==menuId);
+if(!item) return res.status(404).json({error:"Item not found"});
 
 const total=item.price*quantity;
 
@@ -71,7 +84,7 @@ const id=data.nextIds.orders++;
 const order={
 id,
 item:item.name,
-quantity,
+quantity: Number(quantity),
 total,
 status:"pending"
 };
@@ -87,6 +100,7 @@ app.put("/api/orders/:id/complete",async(req,res)=>{
 const data=await readData();
 
 const order=data.orders.find(o=>o.id==req.params.id);
+if(!order) return res.status(404).json({error:"Order not found"});
 
 order.status="completed";
 
