@@ -9,9 +9,6 @@ const DATA_FILE = path.join(__dirname, "data.json");
 app.use(express.json());
 app.use(express.static("client"));
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "index.html"));
-});
 
 async function readData(){
   try {
@@ -25,9 +22,8 @@ async function readData(){
     };
   }
 }
-
 async function writeData(data){
-await fs.writeFile(DATA_FILE,JSON.stringify(data,null,2)
+await fs.writeFile(DATA_FILE,JSON.stringify(data,null,2))
 }
 
 app.get("/api/menu",async(req,res)=>{
@@ -61,10 +57,10 @@ data.menu=data.menu.filter(m=>m.id!=req.params.id);
 
 await writeData(data);  
 
-res.json({messages:"deleted"});
+res.json({message:"deleted"});
 });
 
-app.get("api/order",async(req,res)=>{
+app.get("/api/order",async(req,res)=>{
 const data=await readData();
 res.json(data.orders);
 });
